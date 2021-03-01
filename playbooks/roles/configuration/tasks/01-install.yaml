@@ -1,0 +1,25 @@
+- name: Configuración horaria
+  command: /usr/bin/timedatectl set-timezone Europe/Madrid
+
+- name: install chrony
+  dnf:
+    name: "chrony"
+    state: present
+  become: yes
+
+- name: Enable ntp
+  command: /usr/bin/timedatectl set-ntp true
+  become: yes
+
+- name: Desactivamos SELinux
+  command: sed -i s/=enforcing/=disabled/g /etc/selinux/config
+
+
+- name: Instalamos dependencias nfs
+  dnf:
+    name: 
+      - nfs-utils
+      - nfs4-acl-tools
+      - wget
+    state: present
+  become: yes

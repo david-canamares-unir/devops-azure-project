@@ -1,8 +1,9 @@
 ---
 
-- name: enable chrony
+- name: enable NFS service
   systemd:
-    name: "chrony"
+    name: "nfs-server"
     state: restarted
     enabled: yes
+    masked: no
   become: yes

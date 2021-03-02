@@ -1,0 +1,8 @@
+
+- name: Instalamos dependencias nfs
+  dnf:
+    name: 
+      - nfs-utils
+      - net-tools
+    state: present
+  become: yes

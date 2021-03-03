@@ -1,0 +1,19 @@
+---
+
+- name: firewall configuration for nfs
+  firewalld:
+    service: "{{ item }}"
+    permanent: yes
+    state: enabled
+    immediate: yes
+  become: true
+  with_items:
+    - "nfs"
+    - "rpc-bind"
+    - "mountd"
+
+- name: reload service firewalld
+  systemd:
+    name: firewalld
+    state: reloaded
+  become: true

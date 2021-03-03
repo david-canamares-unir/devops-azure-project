@@ -1,7 +1,7 @@
 ---
 
 - name: Configuración previa
-  hosts: nfs
+  hosts: all
   gather_facts: true
   roles:
     - configuration

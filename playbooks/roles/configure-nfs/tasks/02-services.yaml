@@ -2,8 +2,8 @@
 
 - name: enable NFS service
   systemd:
-    name: "nfs-server"
-    state: restarted
+    name: nfs-server
+    state: started
     enabled: yes
     masked: no
   become: yes

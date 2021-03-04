@@ -1,3 +1,7 @@
 ---
 
 ports: ["{10250,30000-32767}/tcp"]
+
+kube_token: "9argp0.wln8s1y4091spim3"
+
+kube_discovery_token: "sha256:0038460583f3d180b32fe01fbffc60d69f8b617714d15065abb8fafe73db444b"

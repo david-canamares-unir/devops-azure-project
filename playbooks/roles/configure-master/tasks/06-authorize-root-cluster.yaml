@@ -7,8 +7,11 @@
   become: true
 
 - name: Copiamos fichero de configuracion de kubernetes
-  shell: \\cp -r /etc/kubernetes/admin.conf /root/.kube/config
+  shell: "{{ item }}"
   become: true
+  with_items:
+    - unalias cp
+    - cp -r /etc/kubernetes/admin.conf /root/.kube/config
 
 - name: cambiamos propietario al fichero de configuracion
   shell: chown $(id -u):$(id -g) /root/.kube/config

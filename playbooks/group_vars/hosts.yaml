@@ -1,7 +1,17 @@
 ---
+# lab local
+
+# ip_nodes:
+#    - {ip: '192.168.1.115', name: master}
+#    - {ip: '192.168.1.111', name: worker}
+
+# ip_workers: ['192.168.1.111/32']
+
+# AZURE
 
 ip_nodes: 
-    - {ip: '192.168.1.115', name: master}
-    - {ip: '192.168.1.111', name: worker}
+    - {ip: '10.0.1.10', name: master}
+    - {ip: '10.0.1.11', name: worker1}
+    - {ip: '10.0.1.12', name: worker2}
 
-ip_workers: ['192.168.1.111/32']
+ip_workers: ['10.0.1.11/32', '10.0.1.12/32']

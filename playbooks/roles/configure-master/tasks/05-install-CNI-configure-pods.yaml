@@ -1,12 +1,10 @@
 ---
 
 - name: Definimos red de PODS
-  command: "kubeadm init --pod-network-cidr {{ item }}"
+  command: "kubeadm init --pod-network-cidr {{ red_pods }}"
   become: true
   register: kubeadm_pod_network
-  with_items: 
-    - "{{ red_pods }}"
 
 - name: debug
   debug: 
-    msg: "pods {{ red_pods.stdout }}"
+    var: kubeadm_pod_network

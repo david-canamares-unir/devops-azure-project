@@ -7,7 +7,9 @@
   become: true
 
 - name: Copiamos fichero de configuracion de kubernetes
-  shell: cp -i /etc/kubernetes/admin.conf /root/.kube/config
+  copy:
+    src: /etc/kubernetes/admin.conf
+    dest: /root/.kube/config
   become: true
 
 - name: cambiamos propietario al fichero de configuracion

@@ -5,5 +5,6 @@
   become: true
   register: kubeadm_pod_network
 
-- name: almacenamos respuesta
-  shell: "echo \"{{ kubeadm_pod_network.stdout }}\" > cosa.txt"
+- name: debug
+  shell: 
+    var: kubeadm_pod_network

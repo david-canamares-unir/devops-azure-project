@@ -1,6 +1,6 @@
 ---
 
 - name: Install ingress controller
-  command: kubectl apply -f https://raw.githubusercontent.com/haproxytech/kubernetes-ingress/v1.5/deploy/haproxy-ingress.yaml
+  command: kubectl apply -f {{ haproxy_url }}
   become: true
   

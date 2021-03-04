@@ -5,7 +5,6 @@
     name: kubeadmin
     home: /home/kubeadmin
     password: "12345678"
-  becomes: true
 
 - name: Creamos directorio de kubernetes
   file:
@@ -13,8 +12,14 @@
     state: directory
   become: true
 
-- name: Copiamos fichero de configuracion al home del usuario creado
-  shell: cp -i /etc/kubernetes/admin.conf /home/kubeadmin/.kube/config
+- name: Remove file /root/.kube/config
+  file:
+    path: /home/kubeadmin/.kube/config
+    state: absent
+  become: true
+
+- name: Copiamos fichero de configuracion de kubernetes
+  shell: cp -r /etc/kubernetes/admin.conf /home/kubeadmin/.kube/config
   become: true
 
 - name: Cambiamos propietario del directorio a kubeadmin

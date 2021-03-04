@@ -1,0 +1,10 @@
+---
+
+- name: Instalación de Calico
+  hosts: haproxy
+  gather_facts: true
+  vars_files:
+    - "group_vars/CDN-calico.yaml"
+    - "group_vars/configure-master.yaml"
+  roles:
+    - install-CDN-calico

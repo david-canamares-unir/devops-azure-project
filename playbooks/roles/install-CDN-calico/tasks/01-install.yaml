@@ -1,0 +1,21 @@
+---
+
+- name: Instalamos tigera
+  shell: "kubectl create -f {{ tigera_url }}"
+  become: true
+
+- name: Descargamos custom resources de calico
+  get_url:
+    url: "{{ calico_url }}"
+    dest: "~"
+
+- name: Cambiamos cidr al de nuestra red de PODS
+  lineinfile:
+    path: custom-resources.yaml
+    regexp: "^      cidr:"
+    line: "      cidr: {{ red_pods }}"
+  become: true
+
+- name: Instalamos calico
+  shell: "kubectl apply -f custom-resources.yaml"
+  become: true

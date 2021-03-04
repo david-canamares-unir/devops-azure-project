@@ -1,0 +1,4 @@
+
+
+tigera_url: https://docs.projectcalico.org/manifests/tigera-operator.yaml
+calico_url: https://docs.projectcalico.org/manifests/custom-resources.yaml

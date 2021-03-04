@@ -1,10 +1,9 @@
 ---
 
 - name: Definimos red de PODS
-  command: "kubeadm init --pod-network-cidr {{ red_pods }}"
+  shell: "kubeadm init --pod-network-cidr {{ red_pods }}"
   become: true
   register: kubeadm_pod_network
 
-- name: debug
-  debug: 
-    var: kubeadm_pod_network
+- name: almacenamos respuesta
+  shell: "echo \"{{ kubeadm_pod_network.stdout }}\" > cosa.txt"

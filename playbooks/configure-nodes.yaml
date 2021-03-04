@@ -1,7 +1,7 @@
 ---
 
 - name: Configuración de los nodos workers y master
-  hosts: [haproxy, apache]
+  hosts: [master, workers]
   gather_facts: true
   vars_files:
     - "group_vars/hosts.yaml"

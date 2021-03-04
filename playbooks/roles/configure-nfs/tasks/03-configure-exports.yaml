@@ -1,13 +1,11 @@
 ---
 
 - name: Configuración de exports nfs
-  lineinfile:
-    path: /etc/exports
-    regexp: "^/srv/nfs( |\t){{ item.ip }}"
-    line: "/srv/nfs {{ item.ip }}(rw,sync)"
-    create: yes
+  template:
+    src: exports.j2
+    dest: /etc/exports
   become: true
-  with_items: "{{ ip_nodes }}"
+
 
 - name: Re-export all shared directories
   command: exportfs -r -s

@@ -9,6 +9,7 @@
     permanent: yes
     immediate: yes
     masquerade: yes
+    state: enabled
   become: true
 
 - name: reload el servicio firewalld

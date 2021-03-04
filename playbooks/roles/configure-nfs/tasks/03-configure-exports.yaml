@@ -8,6 +8,9 @@
 
 
 - name: Re-export all shared directories
-  shell: exportfs -r -s
+  shell: "{{item}}"
   become: true
+  with_items:
+    - "exportfs -r"
+    - "exportfs -s"
   

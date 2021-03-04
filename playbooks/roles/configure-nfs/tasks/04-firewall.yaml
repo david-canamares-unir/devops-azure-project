@@ -4,7 +4,7 @@
   ansible.posix.firewalld:
     service: "{{ item }}"
     permanent: yes
-    state: enabled
+    state: reloaded
     immediate: yes
   become: true
   with_items:

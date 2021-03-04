@@ -1,5 +1,5 @@
 ---
 
-- include_tasks: 01-firewall-ports
-- include_tasks: 02-join-cluster
+- include_tasks: 01-firewall-ports.yaml
+- include_tasks: 02-join-cluster.yaml
 

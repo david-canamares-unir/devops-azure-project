@@ -1,16 +1,13 @@
 ---
 
-- name: firewall configuration for nfs
+
+- name: Permitimos tráfico desde los workers
   ansible.posix.firewalld:
-    service: "{{ item }}"
+    rich_rule: rule family=ipv4 source address={{ item }} accept
     permanent: yes
     state: enabled
-    immediate: yes
   become: true
-  with_items:
-    - "nfs"
-    - "rpc-bind"
-    - "mountd"
+  with_items: "{{ ip_workers }}"
 
 - name: reload service firewalld
   systemd:

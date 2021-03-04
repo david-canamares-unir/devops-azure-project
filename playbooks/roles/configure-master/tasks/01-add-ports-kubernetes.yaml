@@ -1,16 +1,14 @@
 ---
 
-- name: firewall configuration for nfs
+- name: apertura de puertos para kubernetes
   ansible.posix.firewalld:
-    service: "{{ item }}"
+    port: "{{ item }}"
     permanent: yes
     state: enabled
-    immediate: yes
   become: true
-  with_items:
-    - "nfs"
-    - "rpc-bind"
-    - "mountd"
+  with_items: "{{ puertos_kube }}"
+
+
 
 - name: reload service firewalld
   systemd:

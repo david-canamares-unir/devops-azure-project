@@ -1,0 +1,17 @@
+---
+
+- name: Instalamos kubernetes
+  dnf:
+    name: "{{ kubernetes_install }}"
+    state: present
+    disable_excludes: repoid
+  become: yes
+
+
+- name: Habilitamos kubernetes service
+  systemd:
+    name: kubelet
+    state: started
+    enabled: yes
+    masked: no
+  become: yes

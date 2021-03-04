@@ -1,0 +1,22 @@
+---
+
+- name: Añadimos repositorio de docker
+  command: "dnf config-manager --add-repo={{ item }}"
+  become: yes
+  with_items:
+    - "{{ repo_docker_url }}"
+
+- name: Instalamos docker
+  dnf:
+    name: "{{ docker_install }}"
+    state: present
+  become: yes
+
+
+- name: Habilitamos docker service
+  systemd:
+    name: docker
+    state: started
+    enabled: yes
+    masked: no
+  become: yes

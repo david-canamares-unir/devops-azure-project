@@ -1,0 +1,9 @@
+---
+
+- name: Configuración de fichero hosts
+  lineinfile:
+    path: /etc/hosts
+    regexp: "^{{ item.ip }}"
+    line: "{{ item.ip }}  {{ip.name}} {{ip.name}}.lab"
+  become: true
+  with_items: "{{ ip_nodes }}"

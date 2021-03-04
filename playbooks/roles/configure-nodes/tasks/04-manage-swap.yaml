@@ -1,0 +1,10 @@
+---
+
+- name: Aplicamos swapoff
+  command: swapoff -a
+  become: true
+
+- name: Quitamos linea de swap en fichero fstab
+  command: sed -i '/swap/d' /etc/fstab
+  become: true
+

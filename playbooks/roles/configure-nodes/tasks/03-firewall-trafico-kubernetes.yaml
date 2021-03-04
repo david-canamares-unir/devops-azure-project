@@ -1,0 +1,13 @@
+---
+
+- name: Configuración del tráfico de kubernetes con el cortafuegos
+  lineinfile:
+    path: /etc/sysctl.d/k8s.conf
+    regexp: "^{{ item.key }}"
+    line: "{{ item.key }} = {{item.value}}"
+  become: true
+  with_items: "{{ k8s_bridges }}"
+
+- name: Aplicar configuración
+  command: sysctl --system
+  become: true

@@ -1,0 +1,28 @@
+---
+
+- name: Add the user 'kubeadmin'
+  user:
+    name: kubeadmin
+    home: /home/kubeadmin
+    password: "12345678"
+  becomes: true
+
+- name: Creamos directorio de kubernetes
+  file:
+    path: /home/kubeadmin/.kube
+    state: directory
+  become: true
+
+- name: Copiamos fichero de configuracion al home del usuario creado
+  command: cp -i /etc/kubernetes/admin.conf /home/kubeadmin/.kube/config
+  become: true
+
+- name: Cambiamos propietario del directorio a kubeadmin
+  command: chown kubeadmin. /home/kubeadmin/.kube/config
+  become: true
+
+- name: Creamos fichero en sudoers NOPASS con template
+  template:
+    src: kubeadmin.j2
+    dest: /etc/sudoers.d/kubeadmin
+  become: true

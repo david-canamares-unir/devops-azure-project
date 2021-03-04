@@ -1,0 +1,19 @@
+---
+
+- name: Creamos .kube para usuario root
+  file:
+    path: /root/.kube
+    state: directory
+  become: true
+
+- name: Copiamos fichero de configuracion de kubernetes
+  command: cp -i /etc/kubernetes/admin.conf /root/.kube/config
+  become: true
+
+- name: cambiamos propietario al fichero de configuracion
+  command: chown $(id -u):$(id -g) /root/.kube/config
+  become: true
+
+- name: Comprobamos nodos
+  command: kubectl get nodes
+  become: true

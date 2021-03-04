@@ -1,0 +1,10 @@
+---
+
+- name: Despliegue de ingress controller
+  hosts: "haproxy"
+  gather_facts: true
+  vars_files:
+    - "group_vars/hosts.yaml"
+    - "group_vars/ingress-controller.yaml"
+  roles:
+    - ingress-controller

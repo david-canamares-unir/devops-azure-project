@@ -1,0 +1,5 @@
+---
+
+- include_tasks: 01-add-ports-kubernetes.yaml
+- include_tasks: 02-config-kudeadm.yaml
+- include_tasks: 03-acceso-workers.yaml

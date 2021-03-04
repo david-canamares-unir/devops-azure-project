@@ -1,0 +1,5 @@
+---
+
+- name: Configuramos jubeadm
+  command: kubeadm config images pull
+  become: true

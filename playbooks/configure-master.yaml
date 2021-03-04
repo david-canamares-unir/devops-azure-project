@@ -1,0 +1,10 @@
+---
+
+- name: Configuración del nodo master
+  hosts: "haproxy"
+  gather_facts: true
+  vars_files:
+    - "group_vars/hosts.yaml"
+    - "group_vars/configure-master.yaml"
+  roles:
+    - configure-master

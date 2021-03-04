@@ -1,0 +1,10 @@
+---
+
+- name: Configuración de los nodos workers y master
+  hosts: [haproxy, apache]
+  gather_facts: true
+  vars_files:
+    - "group_vars/hosts.yaml"
+    - "group_vars/configure-nodes.yaml"
+  roles:
+    - configure-nodes

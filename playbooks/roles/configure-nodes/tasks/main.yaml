@@ -1,0 +1,9 @@
+---
+
+- include_tasks: 01-DNS-configuration.yaml
+- include_tasks: 02-enable-transparent-masquerading.yaml
+- include_tasks: 03-firewall-trafico-kubernetes.yaml
+- include_tasks: 04-manage-swap.yaml
+- include_tasks: 05-install-docker.yaml
+- include_tasks: 06-configure-repo-kubernetes.yaml
+- include_tasks: 07-install-kubernetes.yaml

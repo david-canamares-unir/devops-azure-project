@@ -1,0 +1,19 @@
+---
+
+k8s_bridges: [
+  {key: "net.bridge.bridge-nf-call-ip6tables", value: 1},
+  {key: "net.bridge.bridge-nf-call-iptables", value: 1}]
+
+
+repo_docker_url: "https://download.docker.com/linux/centos/docker-ce.repo"
+
+docker_install: [
+      "docker-ce-19.03.14-3.el8",
+      "containerd.io"
+      ]
+
+kubernetes_install: [
+      "kubelet",
+      "kubeadm",
+      "kubectl"
+]

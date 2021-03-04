@@ -1,16 +1,15 @@
 ---
 
-- name: firewall configuration for nfs
+- name: apertura de puertos para los workers
   ansible.posix.firewalld:
-    service: "{{ item }}"
+    port: "{{ item }}"
     permanent: yes
     state: enabled
-    immediate: yes
+    zone: public
   become: true
-  with_items:
-    - "nfs"
-    - "rpc-bind"
-    - "mountd"
+  with_items: "{{ ports }}"
+
+
 
 - name: reload service firewalld
   systemd:

@@ -1,0 +1,19 @@
+---
+
+- name: Habilitar transparent masquerading
+  command: modprobe br_netfilter
+  become: true
+
+- name: Configuracion firewall para transparent masquerading
+  ansible.posix.firewalld:
+    permanent: yes
+    immediate: yes
+    masquerade: yes
+  become: true
+
+- name: reload el servicio firewalld
+  systemd:
+    name: firewalld
+    state: reloaded
+  become: true
+  

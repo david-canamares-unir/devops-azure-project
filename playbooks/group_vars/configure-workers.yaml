@@ -1,6 +1,8 @@
 ---
 
-ports: ["{10250,30000-32767}/tcp"]
+ports: 
+  - "30000-32767/tcp"
+  - "10250/tcp"
 
 kube_token: "9argp0.wln8s1y4091spim3"
 

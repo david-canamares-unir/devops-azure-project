@@ -1,6 +1,6 @@
 ---
 
-- name: Instalación de Calico
+- name: Instalación de flannel
   hosts: [master, workers]
   gather_facts: true
   vars_files:

@@ -4,6 +4,6 @@ ports:
   - "30000-32767/tcp"
   - "10250/tcp"
 
-kube_token: "9argp0.wln8s1y4091spim3"
+kube_token: "jnoq5j.gj75b5g2uhzhpx7g"
 
-kube_discovery_token: "sha256:0038460583f3d180b32fe01fbffc60d69f8b617714d15065abb8fafe73db444b"
+kube_discovery_token: "sha256:581c5c216772c4b886247a0b49a130df4c349b9ae00a15bbc1b4d5a1acb18617"

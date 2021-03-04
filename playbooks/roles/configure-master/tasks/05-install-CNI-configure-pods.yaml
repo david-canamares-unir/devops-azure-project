@@ -6,5 +6,5 @@
   register: kubeadm_pod_network
 
 - name: debug
-  shell: 
+  debug: 
     var: kubeadm_pod_network

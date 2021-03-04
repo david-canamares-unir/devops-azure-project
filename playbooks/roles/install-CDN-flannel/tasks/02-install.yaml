@@ -1,0 +1,6 @@
+---
+
+- name: Instalamos flannel y lo aplicamos
+  shell: "kubectl apply -f {{ flannel_url }}"
+  become: true
+  when: inventory_hostname == 'master'

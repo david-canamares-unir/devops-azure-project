@@ -1,0 +1,9 @@
+---
+
+- name: Instalación de Calico
+  hosts: [master, workers]
+  gather_facts: true
+  vars_files:
+    - "group_vars/CDN-flannel.yaml"
+  roles:
+    - install-CDN-flannel

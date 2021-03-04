@@ -1,0 +1,17 @@
+---
+
+- name: apertura de puertos para flannel
+  ansible.posix.firewalld:
+    port: "{{ item }}"
+    permanent: yes
+    state: enabled
+  become: true
+  with_items: "{{ puertos_flannel }}"
+
+
+
+- name: reload service firewalld
+  systemd:
+    name: firewalld
+    state: reloaded
+  become: true

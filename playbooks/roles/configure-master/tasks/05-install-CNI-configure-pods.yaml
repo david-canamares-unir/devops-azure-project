@@ -1,7 +1,7 @@
 ---
 
 - name: Definimos red de PODS
-  shell: "kubeadm init --pod-network-cidr {{ red_pods }}"
+  shell: "kubeadm init --apiserver-advertise-address {{ advertise_address }} --pod-network-cidr {{ red_pods }}"
   become: true
   register: kubeadm_pod_network
 

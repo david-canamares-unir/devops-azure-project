@@ -1,7 +1,7 @@
 ---
 
 red_pods: "192.169.0.0/16"
-
+advertise_address: "192.168.1.115/24"
 puertos_kube: 
   - "6443/tcp"
   - "2379-2380/tcp"

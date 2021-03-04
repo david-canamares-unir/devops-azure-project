@@ -6,12 +6,15 @@
     state: directory
   become: true
 
-- name: Copiamos fichero de configuracion de kubernetes
-  shell: "{{ item }}"
+- name: Remove file /root/.kube/config
+  file:
+    path: /root/.kube/config
+    state: absent
   become: true
-  with_items:
-    - unalias cp
-    - cp -r /etc/kubernetes/admin.conf /root/.kube/config
+
+- name: Copiamos fichero de configuracion de kubernetes
+  shell: cp -r /etc/kubernetes/admin.conf /root/.kube/config
+  become: true
 
 - name: cambiamos propietario al fichero de configuracion
   shell: chown $(id -u):$(id -g) /root/.kube/config

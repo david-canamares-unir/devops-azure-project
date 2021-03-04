@@ -4,7 +4,7 @@
   dnf:
     name: "{{ kubernetes_install }}"
     state: present
-    disable_excludes: repoid
+    disable_excludes: kubernetes
   become: yes
 
 

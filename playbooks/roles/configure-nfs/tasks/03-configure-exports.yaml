@@ -8,6 +8,6 @@
 
 
 - name: Re-export all shared directories
-  command: exportfs -r -s
+  shell: exportfs -r -s
   become: true
   

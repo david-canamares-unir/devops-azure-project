@@ -5,6 +5,7 @@
     path: /etc/exports
     regexp: "^/srv/nfs( |\t){{ item.ip }}"
     line: "/srv/nfs {{ item.ip }}(rw,sync)"
+    create: yes
   become: true
   with_items: "{{ ip_nodes }}"
 

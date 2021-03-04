@@ -14,11 +14,11 @@
   become: true
 
 - name: Copiamos fichero de configuracion al home del usuario creado
-  command: cp -i /etc/kubernetes/admin.conf /home/kubeadmin/.kube/config
+  shell: cp -i /etc/kubernetes/admin.conf /home/kubeadmin/.kube/config
   become: true
 
 - name: Cambiamos propietario del directorio a kubeadmin
-  command: chown kubeadmin. /home/kubeadmin/.kube/config
+  shell: chown kubeadmin. /home/kubeadmin/.kube/config
   become: true
 
 - name: Creamos fichero en sudoers NOPASS con template

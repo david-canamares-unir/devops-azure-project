@@ -1,13 +1,5 @@
 ---
 
-- name: Configuración del tráfico de kubernetes con el cortafuegos
-  lineinfile:
-    path: /etc/yum.repos.d/kubernetes.repo
-    regexp: "^{{ item.key }}"
-    line: "{{ item.key }} = {{item.value}}"
-  become: true
-  with_items: "{{ k8s_bridges }}"
-
 - name: Creamos repositorio de kubernetes con template
   template:
     src: kubernetes.repo.j2

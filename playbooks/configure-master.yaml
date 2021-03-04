@@ -1,7 +1,7 @@
 ---
 
 - name: Configuración del nodo master
-  hosts: "haproxy"
+  hosts: master
   gather_facts: true
   vars_files:
     - "group_vars/hosts.yaml"

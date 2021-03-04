@@ -1,0 +1,13 @@
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3
+ansible_user=ansible
+
+[master]
+master.azure
+
+[workers]
+worker1.azure
+worker2.azure
+
+[nfs]
+nfs.azure

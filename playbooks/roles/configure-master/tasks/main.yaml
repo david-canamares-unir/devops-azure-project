@@ -5,3 +5,5 @@
 - include_tasks: 03-acceso-workers.yaml
 - include_tasks: 04-acceso-docker.yaml
 - include_tasks: 05-install-CNI-configure-pods.yaml
+- include_tasks: 06-authorize-root-cluster.yaml
+- include_tasks: 07-crear-usuario-no-admin.yaml

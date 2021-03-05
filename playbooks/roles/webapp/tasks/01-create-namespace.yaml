@@ -3,6 +3,6 @@
 - name: Creamos namespace
   shell: "kubectl create namespace {{ namespace }}"
   register: result
-  failed_when: if result.rc == 1 and 'AlreadyExists' not in result.stderr
+  failed_when: result.rc == 1 and 'AlreadyExists' not in result.stderr
   become: true
 

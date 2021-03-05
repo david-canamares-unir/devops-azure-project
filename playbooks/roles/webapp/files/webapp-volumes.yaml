@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: webapp-volumes
-        image: docker.io/alexwhen/docker-2048:latest
+        image: quay.io/rhte_2019/webapp:v1
         ports:
         - containerPort: 80
         readinessProbe:

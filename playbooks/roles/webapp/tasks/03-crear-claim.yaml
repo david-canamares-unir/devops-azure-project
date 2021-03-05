@@ -1,0 +1,12 @@
+---
+
+- name: Copiar ficheros necesarios para crear claim
+  copy:
+    src:  "{{ persistant_volume_claim_file.file }}"
+    dest: "{{ persistant_volume_claim_file.path }}"
+    mode: "{{ persistant_volume_claim_file.mode }}"
+  become: yes
+
+- name: Creamos claim
+  shell: "kubectl apply -f {{ persistant_volume_claim_file.file }}"
+  become: true

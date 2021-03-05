@@ -1,0 +1,8 @@
+---
+
+- include_tasks: 01-create-namespace.yaml
+- include_tasks: 02-definir-persistant-volume.yaml
+- include_tasks: 03-crear-claim.yaml
+- include_tasks: 04-despliegue.yaml
+
+

@@ -1,0 +1,12 @@
+---
+
+- name: Copiar ffichero de configuracion del despliegue
+  copy:
+    src:  "{{ deploy_app_file.file }}"
+    dest: "{{ deploy_app_file.path }}"
+    mode: "{{ deploy_app_file.mode }}"
+  become: yes
+
+- name: Aplicamos el fichero de despliegue
+  shell: "kubectl apply -f {{ deploy_app_file.file }}"
+  become: true

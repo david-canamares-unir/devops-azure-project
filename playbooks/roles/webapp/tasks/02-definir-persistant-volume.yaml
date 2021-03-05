@@ -1,0 +1,12 @@
+---
+
+- name: Copiar ficheros necesarios para definir el persistant volume
+  copy:
+    src:  "{{ persistant_volume_file.file }}"
+    dest: "{{ persistant_volume_file.path }}"
+    mode: "{{ persistant_volume_file.mode }}"
+  become: yes
+
+- name: Definimos persistant volume
+  shell: "kubectl apply -f {{ persistant_volume_file.file }}"
+  become: true

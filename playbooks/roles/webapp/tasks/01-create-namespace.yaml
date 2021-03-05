@@ -1,0 +1,5 @@
+---
+
+- name: Creamos namespace
+  shell: "kubectl create namespace {{ namespace }}"
+  become: true

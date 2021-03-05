@@ -1,6 +1,6 @@
 
 
-namespace: webapp-volumes
+namespace: webapp-volume
 
 persistant_volume_file: { file: 'nfs-pv.yaml', path: '~', mode: 0644  }
 persistant_volume_claim_file: { file: 'nfs-pvc.yaml', path: '~', mode: 0644 }

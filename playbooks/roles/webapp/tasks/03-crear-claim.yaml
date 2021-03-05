@@ -8,5 +8,5 @@
   become: yes
 
 - name: Creamos claim
-  shell: "kubectl apply -f {{ persistant_volume_claim_file.file }}"
+  shell: "kubectl apply -f {{ persistant_volume_claim_file.path }}/{{ persistant_volume_claim_file.file }}"
   become: true

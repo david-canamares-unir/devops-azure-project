@@ -8,5 +8,5 @@
   become: yes
 
 - name: Definimos persistant volume
-  shell: "kubectl apply -f {{ persistant_volume_file.file }}"
+  shell: "kubectl apply -f {{ persistant_volume_file.path }}/{{ persistant_volume_file.file }}"
   become: true

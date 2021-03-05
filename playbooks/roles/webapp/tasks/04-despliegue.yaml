@@ -8,5 +8,5 @@
   become: yes
 
 - name: Aplicamos el fichero de despliegue
-  shell: "kubectl apply -f {{ deploy_app_file.file }}"
+  shell: "kubectl apply -f {{ deploy_app_file.path }}/{{ deploy_app_file.file }}"
   become: true
